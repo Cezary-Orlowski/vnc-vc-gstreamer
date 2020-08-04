@@ -16,28 +16,12 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs
 
-# yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-    && apt-get update \
-    && apt-get install -y yarn
-
 # chrome
 RUN curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update \
     && apt-get install -y google-chrome-stable
 ENV CHROME_ARGS --no-sandbox
-
-# Docker CE
-RUN apt-get install -y apt-transport-https software-properties-common apt-utils
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-RUN apt-cache policy docker-ce
-RUN apt-get update && apt-get install -y docker.io
-
-RUN usermod -aG docker user
-RUN usermod -aG sudo user
 
 # VS Code
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \

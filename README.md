@@ -5,9 +5,8 @@ Docker image to create a development enviroment that can be deployed to Docker S
 Based on oott123/docker-novnc, i added:
 - XFCE4 Desktop
 - NodeJS
-- Yarn
 - Google Chrome Stable
-- Docker-CE
 - Visual Studio Code
+- GStreamer
 
-See [Dockefile](Dockerfile) & [Docker Compose yaml](docker-compose.yml)
+See [Dockefile](Dockerfile)
