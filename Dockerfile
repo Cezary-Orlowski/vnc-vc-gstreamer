@@ -39,7 +39,10 @@ RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py \
 	&& python get-pip.py \
 	&& python2 get-pip.py \
 	&& python3 get-pip.py \
-	&& pip install pika mysql.connector requests threading
+	&& pip install pika mysql.connector \
+	&& pip2 install pika mysql.connector \
+	&& pip3 install pika mysql.connector
+
 
 
 # Autoremove & Clean
