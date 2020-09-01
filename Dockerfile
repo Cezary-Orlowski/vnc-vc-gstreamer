@@ -39,11 +39,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py \
 	&& python get-pip.py \
 	&& python2 get-pip.py \
 	&& python3 get-pip.py \
-	&& pip install pika mysql.connector \
-	&& pip2 install pika mysql.connector \
-	&& pip3 install pika mysql.connector
-
-
+	&& pip install pika mysql.connector requests random psycopg2 \
+	&& pip2 install pika mysql.connector requests random psycopg2 \
+	&& pip3 install pika mysql.connector requests random psycopg2
 
 # Autoremove & Clean
 RUN apt-get autoremove -y && \
@@ -56,5 +54,9 @@ RUN chsh -s /bin/bash user
 
 COPY config/xstartup /etc/vnc/xstartup
 RUN chmod u+x /etc/vnc/xstartup
+COPY config/Clock.mp4 /home/root/Desktop/Clock.mp4
+COPY config/Subscriber.py /home/root/Desktop/Subscriber.py
+COPY config/Publisher.py /home/root/Desktop/Publisher.py
+COPY config/GStreamer.py /home/root/Desktop/GStreamer.py
 
 EXPOSE 5911
