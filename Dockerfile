@@ -39,16 +39,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py \
 	&& python get-pip.py \
 	&& python2 get-pip.py \
 	&& python3 get-pip.py \
-	&& pip install pika mysql.connector requests \
-	&& pip2 install pika mysql.connector requests \
-	&& pip3 install pika mysql.connector requests
-
-# Autoremove & Clean
-RUN apt-get autoremove -y && \
-    apt-get clean
-
-# Set bash as default user terminal shell
-RUN chsh -s /bin/bash user
+	&& pip install pika mysql.connector requests psycopg2-binary \
+	&& pip2 install pika mysql.connector requests psycopg2-binary \
+	&& pip3 install pika mysql.connector requests psycopg2-binary
 
 # ---------------------------------------------------------------
 
@@ -58,7 +51,5 @@ COPY config/Clock.mp4 ~/Desktop/Clock.mp4
 COPY config/Subscriber.py ~/Desktop/Subscriber.py
 COPY config/Publisher.py ~/Desktop/Publisher.py
 COPY config/GStreamer.py ~/Desktop/GStreamer.py
-
-COPY config/Clock.mp4 config/Subscriber.py config/Publisher.py config/GStreamer.py /etc/vnc/
 
 EXPOSE 5911
