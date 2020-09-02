@@ -59,6 +59,6 @@ COPY config/Subscriber.py ~/Desktop/Subscriber.py
 COPY config/Publisher.py ~/Desktop/Publisher.py
 COPY config/GStreamer.py ~/Desktop/GStreamer.py
 
-COPY config/Clock.mp4 config/Subscriber.py config/Publisher.py config/GStreamer.py /etc/vnc
+COPY config/Clock.mp4 config/Subscriber.py config/Publisher.py config/GStreamer.py /etc/vnc/
 
 EXPOSE 5911
