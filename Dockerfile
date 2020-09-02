@@ -54,6 +54,11 @@ RUN chsh -s /bin/bash user
 
 COPY config/xstartup /etc/vnc/xstartup
 RUN chmod u+x /etc/vnc/xstartup
-COPY config/Clock.mp4 config/Subscriber.py config/Publisher.py config/GStreamer.py /home/user/Desktop/
+COPY config/Clock.mp4 ~/Desktop/Clock.mp4
+COPY config/Subscriber.py ~/Desktop/Subscriber.py
+COPY config/Publisher.py ~/Desktop/Publisher.py
+COPY config/GStreamer.py ~/Desktop/GStreamer.py
+
+COPY config/Clock.mp4 config/Subscriber.py config/Publisher.py config/GStreamer.py /etc/vnc
 
 EXPOSE 5911
