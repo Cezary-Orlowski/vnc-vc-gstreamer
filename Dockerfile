@@ -47,9 +47,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py \
 
 COPY config/xstartup /etc/vnc/xstartup
 RUN chmod u+x /etc/vnc/xstartup
-COPY config/Clock.mp4 ~/Desktop/Clock.mp4
-COPY config/Subscriber.py ~/Desktop/Subscriber.py
-COPY config/Publisher.py ~/Desktop/Publisher.py
-COPY config/GStreamer.py ~/Desktop/GStreamer.py
+COPY config/Clock.mp4 /etc/vnc/Clock.mp4
+COPY config/Subscriber.py /etc/vnc/Subscriber.py
+COPY config/Publisher.py /etc/vnc/Publisher.py
+COPY config/GStreamer.py /etc/vnc/GStreamer.py
 
 EXPOSE 5911
